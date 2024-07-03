@@ -9,7 +9,7 @@ def generate_bar_chart(name,labels,values):
   plt.savefig(f'./imgs/{name}.png') 
   plt.close()
 
-def generate_pie_chart(name,labels,values):
+def generate_pie_chart(labels,values,name="World"):
   fig, ax = plt.subplots()
   ax.pie(values, labels=labels)
   ax.axis('equal')

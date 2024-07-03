@@ -1,15 +1,16 @@
 import utils
 import read_csv
 import charts
+import pandas as pd
+# []
 # python app/main.py
 
 user_options = ('population_by_country', 'population_by_continent' ,'word_population')
 
 
-def run(option):
-
-  data = read_csv.read_csv('data.csv')
+def run(option): 
   
+  data = read_csv.read_csv('data.csv')
   if option == 'population_by_country':
     country = input('Type country => ')    
     result = utils.population_by_country(data, country)
@@ -25,12 +26,13 @@ def run(option):
     result = utils.population_by_continent(data, continent)
     world_population_percent = list(map(lambda item: item['World Population Percentage'], result))   
     countrys = list(map(lambda item: item['Country/Territory'], result))
-    charts.generate_pie_chart(continent,countrys,world_population_percent)
+    charts.generate_pie_chart(countrys,world_population_percent,continent)
 
   elif option == 'word_population':
     world_population_percent = list(map(lambda item: item['World Population Percentage'], data))
     countrys = list(map(lambda item: item['Country/Territory'], data))
     charts.generate_pie_chart(countrys,world_population_percent)
+  
 
   
 if __name__ == '__main__': # Esto es para que se ejecute como script #cuando lo llamemos desde la terminal
