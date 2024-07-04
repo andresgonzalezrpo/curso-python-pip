@@ -13,7 +13,7 @@ def generate_pie_chart(labels,values,name="World"):
   fig, ax = plt.subplots()
   ax.pie(values, labels=labels)
   ax.axis('equal')
-  plt.savefig(f'./imgs/{name}.png')
+  plt.savefig(f'./imgs/chart_file_{name}.png')
   plt.close()
   
 
